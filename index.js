@@ -9,7 +9,8 @@ const server = app.listen(process.env.PORT, () =>
 );
 const io = require('socket.io')(server, {
   cors: { origin: '*' },
-  transports: ['websocket'],
+  forceNew: true,
+  transports: ['websocket', 'polling'],
 }).listen(server);
 
 app.use(cors());
